@@ -125,13 +125,14 @@ class _ProductListTabState extends State<ProductListTab> {
           Expanded(
             child: LayoutBuilder(
               builder: (context, constraints) {
-                if (constraints.maxWidth >= 600) {
+                print(constraints.maxWidth);
+                if (constraints.maxWidth >= 1080) {
                   return GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisSpacing: 0,
-                            childAspectRatio: 1.9),
+                            childAspectRatio: 1.6),
                     itemCount: productsFiltered.length,
                     itemBuilder: (context, index) {
                       final product = products[index];
@@ -143,9 +144,12 @@ class _ProductListTabState extends State<ProductListTab> {
                     itemCount: productsFiltered.length,
                     itemBuilder: ((context, index) {
                       final product = productsFiltered[index];
-                      return ProductCard(
-                        index: index,
-                        product: product,
+                      return SizedBox(
+                        height: 300,
+                        child: ProductCard(
+                          index: index,
+                          product: product,
+                        ),
                       );
                     }),
                   );
@@ -156,7 +160,7 @@ class _ProductListTabState extends State<ProductListTab> {
           // :: here is coding for
           // Expanded(
           //   // return type of widgets that responsive to web or mobile
-          //   child: size.width >= 600
+          //   child: size.width >= 1080
           //       // a same like listview but have cross axis count that can enabling more than 1 card in one row
           //       ? GridView.builder(
           //           gridDelegate:

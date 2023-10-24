@@ -28,9 +28,11 @@ class ProductCard extends StatelessWidget {
             ? const Color.fromARGB(255, 238, 242, 245)
             : Colors.yellow[200],
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+          padding:
+              const EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Text(
                 product['title'],
@@ -40,12 +42,17 @@ class ProductCard extends StatelessWidget {
                 "\$ ${product['price']}",
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              Center(
-                child: Image(
-                  image: AssetImage(product['imageUrl']),
-                  fit: BoxFit.fitWidth,
-                  height: 190,
-                  width: 400,
+              Expanded(
+                child: Center(
+                  child: Container(
+                    decoration: const BoxDecoration(color: Colors.black12),
+                    child: Image(
+                      image: AssetImage(product['imageUrl']!),
+                      fit: BoxFit.fitWidth,
+                      height: 190,
+                      width: 400,
+                    ),
+                  ),
                 ),
               )
             ],
