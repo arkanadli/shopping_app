@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // we are using multiprovider, because in the bigger apps, we will have more than 1 provider class
     return MaterialApp(
-      title: 'Shopping App',
+      title: 'Shopping  App',
       theme: ThemeData(
         fontFamily: 'Lato',
         // will generate some color scheme from seed
