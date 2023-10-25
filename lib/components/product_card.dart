@@ -44,14 +44,11 @@ class ProductCard extends StatelessWidget {
               ),
               Expanded(
                 child: Center(
-                  child: Container(
-                    decoration: const BoxDecoration(color: Colors.black12),
-                    child: Image(
-                      image: AssetImage(product['imageUrl']!),
-                      fit: BoxFit.fitWidth,
-                      height: 190,
-                      width: 400,
-                    ),
+                  child: Image(
+                    image: AssetImage(product['imageUrl']!),
+                    fit: BoxFit.fitWidth,
+                    height: 190,
+                    width: 400,
                   ),
                 ),
               )
