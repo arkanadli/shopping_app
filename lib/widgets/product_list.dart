@@ -18,7 +18,7 @@ class _ProductListTabState extends State<ProductListTab> {
     'Reebok',
   ];
   late String selectedFilter;
-  late var productsFiltered;
+  late List productsFiltered;
   @override
   void initState() {
     // TODO: implement initState
@@ -125,7 +125,7 @@ class _ProductListTabState extends State<ProductListTab> {
           Expanded(
             child: LayoutBuilder(
               builder: (context, constraints) {
-                print(constraints.maxWidth);
+                // print(constraints.maxWidth);
                 if (constraints.maxWidth >= 1080) {
                   return GridView.builder(
                     gridDelegate:
@@ -140,10 +140,16 @@ class _ProductListTabState extends State<ProductListTab> {
                     },
                   );
                 } else {
+                  if (productsFiltered.isEmpty) {
+                    return const Center(
+                      child: Text('No Shoes Available.'),
+                    );
+                  }
                   return ListView.builder(
                     itemCount: productsFiltered.length,
                     itemBuilder: ((context, index) {
                       final product = productsFiltered[index];
+
                       return SizedBox(
                         height: 300,
                         child: ProductCard(

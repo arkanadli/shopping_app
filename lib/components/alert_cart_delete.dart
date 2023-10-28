@@ -35,6 +35,12 @@ class alert_cart_delete extends StatelessWidget {
               Provider.of<CartProvider>(context, listen: false)
                   .removeProduct(cartItem);
               Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  duration: Duration(milliseconds: 800),
+                  content: Text('Product removed from cart!'),
+                ),
+              );
             },
             child: const Text(
               'Yes',

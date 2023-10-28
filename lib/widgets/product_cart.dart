@@ -37,8 +37,10 @@ class _ProductCardTabState extends State<ProductCartTab> {
                     context: context,
                     builder: (context) {
                       return alert_cart_delete(cartItem: cartItem);
+                      
                     },
                   );
+                  
                 },
                 icon: const Icon(
                   Icons.delete_forever,

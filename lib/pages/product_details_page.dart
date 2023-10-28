@@ -54,9 +54,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const Spacer(),
-            Image(
-              image: AssetImage(widget.product['imageUrl']),
-              height: 400,
+            Hero(
+              tag: widget.product['id'],
+              child: Image(
+                image: AssetImage(widget.product['imageUrl']),
+                height: 400,
+              ),
             ),
             const Spacer(
               flex: 2,
